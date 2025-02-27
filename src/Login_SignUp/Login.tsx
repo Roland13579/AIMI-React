@@ -8,9 +8,22 @@ const Login: React.FC = () => {
 
   const navigate = useNavigate(); // React Router navigation function
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Username: " + username + " Password: " + password);
+
+    const response = await fetch("http://127.0.0.1:5000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await response.json();
+    alert(data.message);
+
+    if (response.ok) {
+      localStorage.setItem("token", data.token); // Store JWT token in localStorage
+      navigate("/dashboard"); // Redirect to dashboard
+    }
   };
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">

@@ -12,12 +12,28 @@ const SignUp: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(
-      `Full Name: ${fullName}\nHandphone: ${handphone}\nEmail: ${email}\nUsername: ${username}\nAccess Level: ${accessLevel}`
-    );
-    navigate("/login"); // Redirect to login after signup
+
+    const response = await fetch("http://127.0.0.1:5000/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName,
+        handphone,
+        email,
+        username,
+        password,
+        accessLevel,
+      }),
+    });
+
+    const data = await response.json();
+    alert(data.message);
+
+    if (response.ok) {
+      navigate("/login"); // Redirect to login page after successful signup
+    }
   };
 
   return (
