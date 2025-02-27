@@ -9,6 +9,7 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)  # Username, must be unique
     password = db.Column(db.String(60), nullable=False)  # Password
     access_level = db.Column(db.String(20), nullable=False)  # Access level (Manager or Employee)
+    is_verified = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"  # String representation of the User object
