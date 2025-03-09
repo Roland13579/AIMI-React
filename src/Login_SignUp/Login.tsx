@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles.css";
 
-const Login: React.FC = () => {
+interface LoginProps {
+  setIsAuthenticated: (auth: boolean) => void; // Define the prop
+}
+
+const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
+  // Accept the prop
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,21 +22,19 @@ const Login: React.FC = () => {
     });
 
     const data = await response.json();
-    alert(data.message);
+    alert(data.message); // Show success/error message
 
     if (response.ok) {
-      localStorage.setItem("token", data.token); // Store JWT token in localStorage
-      navigate("/dashboard"); // Redirect to dashboard
+      localStorage.setItem("token", data.token); // Store token
+      setIsAuthenticated(true); // ✅ Update authentication state
+      localStorage.setItem("username", data.username); // ✅ Store username (for profile.tsx)
+      console.log("Username saved:", data.username);
+      navigate("/dashboard"); // ✅ Redirect user to dashboard
     }
   };
+
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      {/* Website Header */}
-      <div className="position-absolute top-0 start-50 translate-middle-x mt-4">
-        <h1 className="fw-bold">StockSight</h1>
-      </div>
-
-      {/* Login Card */}
       <div className="card p-4 shadow-lg" style={{ width: "350px" }}>
         <h2 className="text-center mb-4">Login</h2>
         <form onSubmit={handleSubmit}>
@@ -61,13 +63,12 @@ const Login: React.FC = () => {
           </button>
         </form>
 
-        {/* Sign Up Redirect */}
         <p className="text-center mt-3">
           Don't have an account?{" "}
           <span
             className="text-primary"
             style={{ cursor: "pointer" }}
-            onClick={() => navigate("/Signup")}
+            onClick={() => navigate("/signup")}
           >
             Sign Up
           </span>
