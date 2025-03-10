@@ -102,6 +102,44 @@ def get_profile():
         "username": user.username,
         "access_level": user.access_level
     })
+
+@app.route('/update-profile', methods=['PUT'])
+def update_profile():
+    data = request.get_json()
+    print("Received data:", data)  # Debugging log
+
+    if "username" not in data or "email" not in data:
+        return jsonify({"error": "Missing username or email"}), 400
+    
+    # Check if the new username already exists
+    new_username = data.get("username")
+    if User.query.filter_by(username=new_username).first():
+        return jsonify({"error": "Username already exists"}), 400
+
+    # Fetch the user by full_name (which we assume is unique)
+    user = User.query.filter_by(full_name=data["full_name"]).first()
+
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
+    # Update the user's data if present in the request
+    if "username" in data:
+        user.username = data["username"]
+    if "email" in data:
+        user.email = data["email"]
+    if "full_name" in data:
+        user.full_name = data["full_name"]
+
+    try:
+        db.session.commit()  # Commit the changes to the database
+        return jsonify({"message": "Profile updated successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+
+
+
 #----------------------Inventory----------------------#
 #Inventory
 
@@ -146,3 +184,4 @@ def delete_inventory(item_id):
     inventory_collection.delete_one({"item_id": item_id})
     return jsonify({"message": "Item deleted successfully"})
 
+#----------------------Sales----------------------#
