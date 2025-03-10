@@ -8,6 +8,7 @@ const Header = () => {
   // ✅ Logout Function (Clears Token & Redirects)
   const handleLogout = () => {
     localStorage.removeItem("token"); // Clear auth token
+    window.dispatchEvent(new Event("storage")); // Manually trigger storage event
     navigate("/login"); // Redirect to login page
   };
 
