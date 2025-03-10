@@ -154,22 +154,23 @@ def get_inventory():
 def add_inventory():
     data = request.get_json()
 
-    # ✅ Ensure all required fields exist
+    # Ensure all required fields exist and convert them to the correct data types
     new_item = {
         "item_id": data.get("item_id", ""),
         "item_name": data.get("item_name", ""),
         "description": data.get("description", ""),
         "SKU": data.get("SKU", ""),
-        "quantity": data.get("quantity", 0),
-        "reorder_point": data.get("reorder_point", 0),
-        "cost_price": data.get("cost_price", 0.0),
-        "selling_price": float(data.get("selling_price", 0.0)),
-        "expiration_date": data.get("expiration_date", None)
+        "quantity": int(data.get("quantity", 0)),  # Ensure quantity is an integer
+        "reorder_point": int(data.get("reorder_point", 0)),  # Ensure reorder_point is an integer
+        "cost_price": float(data.get("cost_price", 0.0)),  # Ensure cost_price is a float
+        "selling_price": float(data.get("selling_price", 0.0)),  # Ensure selling_price is a float
+        "expiration_date": data.get("expiration_date", None)  # Expiration date can be None or a string
     }
 
-    inventory_collection.insert_one(new_item)  # ✅ Insert into MongoDB
-    return jsonify({'message': 'Item added successfully'}), 201
+    # Insert the new item into MongoDB
+    inventory_collection.insert_one(new_item)
 
+    return jsonify({'message': 'Item added successfully'}), 201
 
 #Update an item
 @app.route('/inventory/<string:item_id>', methods=['PUT']) #PUT method to update an item
@@ -183,5 +184,16 @@ def update_inventory(item_id):
 def delete_inventory(item_id):
     inventory_collection.delete_one({"item_id": item_id})
     return jsonify({"message": "Item deleted successfully"})
+
+# Get a single inventory item by its item_id
+@app.route('/inventory/<string:item_id>', methods=['GET'])
+def get_inventory_item(item_id):
+    item = inventory_collection.find_one({"item_id": item_id})
+    if not item:
+        return jsonify({"error": "Item not found"}), 404
+
+    item.pop("_id")  # Remove MongoDB's _id field
+    return jsonify(item)
+
 
 #----------------------Sales----------------------#

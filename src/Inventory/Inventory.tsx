@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // ✅ Import for navigation
+import ItemDetailsModal from "../components/ItemDetailsModal"; // Import the modal component
 
 const Inventory = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedItem, setSelectedItem] = useState<any>(null); // State for selected item
   const navigate = useNavigate(); // ✅ For redirection
 
   // 📌 Fetch Inventory Items from Flask Backend
@@ -17,9 +19,6 @@ const Inventory = () => {
         return response.json();
       })
       .then((data) => {
-        if (data.length === 0) {
-          setError("No inventory items found.");
-        }
         setItems(data);
         setLoading(false);
       })
@@ -30,6 +29,14 @@ const Inventory = () => {
       });
   }, []);
 
+  const handleItemClick = (item: any) => {
+    setSelectedItem(item); // Set the selected item to display in the modal
+  };
+
+  const handleCloseModal = () => {
+    setSelectedItem(null); // Close the modal by setting selected item to null
+  };
+
   if (loading) return <p>Loading inventory...</p>;
   if (error) return <p>{error}</p>;
 
@@ -38,6 +45,7 @@ const Inventory = () => {
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>Inventory</h2>
 
+        {/* Always show the "Add Item" button */}
         <button
           className="btn btn-primary"
           onClick={() => navigate("/add-item")}
@@ -61,7 +69,17 @@ const Inventory = () => {
             items.map((item, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{item.item_name}</td>
+                <td>
+                  <button
+                    className="btn btn-link"
+                    onClick={() => {
+                      // Open the modal with selected item details
+                      handleItemClick(item);
+                    }}
+                  >
+                    {item.item_name}
+                  </button>
+                </td>
                 <td>{item.SKU}</td>
                 <td>{item.quantity}</td>
                 <td>
@@ -81,6 +99,13 @@ const Inventory = () => {
           )}
         </tbody>
       </table>
+
+      {selectedItem && (
+        <ItemDetailsModal
+          item={selectedItem}
+          onClose={handleCloseModal} // Close the modal when the user clicks "Close"
+        />
+      )}
     </div>
   );
 };
