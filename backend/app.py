@@ -28,6 +28,7 @@ MONGO_URI = "mongodb://localhost:27017/"  # Change if using MongoDB Atlas
 mongo_client = MongoClient(MONGO_URI)
 mongo_db = mongo_client["aimi_inventory"]  # Database name
 inventory_collection = mongo_db["inventory"]  # Collection for inventory items
+sales_collection = mongo_db["sales"]  # Collection for sales transactions
 
 # ✅ Configure the SQLite database (For User Authentication)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.db'
