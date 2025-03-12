@@ -29,6 +29,7 @@ mongo_client = MongoClient(MONGO_URI)
 mongo_db = mongo_client["aimi_inventory"]  # Database name
 inventory_collection = mongo_db["inventory"]  # Collection for inventory items
 sales_collection = mongo_db["sales"]  # Collection for sales transactions
+purchase_orders_collection = mongo_db["purchase_orders"]  # Collection for purchase orders
 
 # ✅ Configure the SQLite database (For User Authentication)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.db'

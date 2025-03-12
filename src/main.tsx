@@ -16,7 +16,8 @@ import Forecast from "./Forecast";
 import Sales from "./Sales";
 import Inventory from "./Inventory/Inventory";
 import AddItem from "./Inventory/AddItem";
-import PurchaseOrder from "./PurchaseOrder";
+import PurchaseOrder from "./Purchase_Order/PurchaseOrder";
+import CreatePurchaseOrder from "./Purchase_Order/CreatePurchaseOrder";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
@@ -79,6 +80,10 @@ const App = () => {
                   <Route path="/inventory" element={<Inventory />} />
                   <Route path="/add-item" element={<AddItem />} />
                   <Route path="/purchase-order" element={<PurchaseOrder />} />
+                  <Route
+                    path="/create-purchase-order"
+                    element={<CreatePurchaseOrder />}
+                  />
                   <Route path="/profile" element={<Profile />} />
                 </>
               )}

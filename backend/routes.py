@@ -1,7 +1,8 @@
 from flask import request, jsonify
-from app import app, db, mail, inventory_collection, sales_collection
+from app import app, db, mail, inventory_collection, sales_collection, purchase_orders_collection
 from models import User
 import random
+import uuid
 from flask_mail import Message
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -456,3 +457,74 @@ def get_inventory_by_sku(sku):
             "expiration_date": None
         }
         return jsonify(mock_item)
+
+#----------------------Purchase Orders----------------------#
+@app.route('/purchase-orders', methods =['GET'])
+def get_purchase_orders():
+    try:
+        orders = list(purchase_orders_collection.find({}, {"_id":0}))
+        return jsonify(orders)
+    except Exception as e:
+        print(f"Error fetching purchase orders:{e}")
+        return jsonify({})
+    
+@app.route('/purchase-orders', methods=["POST"])
+def create_purchase_order():
+    data = request.get_json()
+    
+    # First check if SKU exists in inventory
+    sku = data.get("SKU") or data.get("sku")
+    inventory_item = inventory_collection.find_one({"SKU": sku.upper()})
+    
+    if not inventory_item:
+        return jsonify({
+            "error": "SKU does not exist in inventory",
+            "message": "Please add the item to inventory first"
+        }), 400
+
+    # Proceed with PO creation if SKU exists
+    reference_number = f"PO-{uuid.uuid4().hex[:8].upper()}"  # Corrected syntax
+
+    
+    new_order = {
+        "reference_number": reference_number,  # Fixed typo in key name
+        "name": data["name"],
+        "SKU": sku,
+        "vendor": data["vendor"],
+        "quantity": int(data["quantity"]),
+        "status": "pending",
+    }
+    
+    purchase_orders_collection.insert_one(new_order)
+    return jsonify({
+        "message": "Purchase order created successfully",
+        "order": {**new_order, "_id": str(new_order["_id"])}
+    }), 201
+
+@app.route('/purchase-orders/<reference_number>/approve', methods=['PUT'])
+def approve_purchase_order(reference_number):
+    order = purchase_orders_collection.find_one({"reference_number": reference_number})
+    
+    if not order:
+        return jsonify({"error": "Purchase order not found"}), 404
+
+    # Check if SKU exists
+    item = inventory_collection.find_one({"SKU": order["SKU"]})
+    
+    if not item:
+        return jsonify({"error": "Cannot approve PO for non-existent SKU"}), 400
+    
+    # Update existing item quantity
+    new_quantity = item["quantity"] + order["quantity"]
+    inventory_collection.update_one(
+        {"SKU": order["SKU"]},
+        {"$set": {"quantity": new_quantity}}
+    )
+    
+    # Update PO status
+    purchase_orders_collection.update_one(
+        {"reference_number": reference_number},
+        {"$set": {"status": "approved"}}
+    )
+    
+    return jsonify({"message": "Purchase order approved"}), 200
