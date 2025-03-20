@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form, Badge } from "react-bootstrap";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 interface SalesTransaction {
   transaction_id: string;
@@ -9,7 +9,7 @@ interface SalesTransaction {
   quantity: number;
   customer_name: string;
   payment_method: string;
-  transaction_date: string;
+  transaction_date: string; // Date is now part of the transaction
   status: "pending" | "packed" | "shipped" | "delivered";
   total_price: number;
 }
@@ -28,19 +28,22 @@ interface InventoryItem {
 
 const Sales: React.FC = () => {
   const [transactions, setTransactions] = useState<SalesTransaction[]>([]);
-  const [filteredTransactions, setFilteredTransactions] = useState<SalesTransaction[]>([]);
+  const [filteredTransactions, setFilteredTransactions] = useState<
+    SalesTransaction[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [dateFilter, setDateFilter] = useState<string>("");
-  
+
   // Modal states
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
-  const [selectedTransaction, setSelectedTransaction] = useState<SalesTransaction | null>(null);
-  
+  const [selectedTransaction, setSelectedTransaction] =
+    useState<SalesTransaction | null>(null);
+
   // Form states for adding new transaction
   const [inventoryItems, setInventoryItems] = useState<InventoryItem[]>([]);
   const [selectedSku, setSelectedSku] = useState("");
@@ -49,7 +52,12 @@ const Sales: React.FC = () => {
   const [customerName, setCustomerName] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const [totalPrice, setTotalPrice] = useState(0);
-  const [newStatus, setNewStatus] = useState<"pending" | "packed" | "shipped" | "delivered">("pending");
+  const [transactionDate, setTransactionDate] = useState(
+    new Date().toISOString().split("T")[0]
+  ); // Date input state
+  const [newStatus, setNewStatus] = useState<
+    "pending" | "packed" | "shipped" | "delivered"
+  >("pending");
 
   // Fetch sales transactions
   useEffect(() => {
@@ -101,44 +109,56 @@ const Sales: React.FC = () => {
 
   const applyFilters = () => {
     let filtered = [...transactions];
-    
+
     // Apply search filter
     if (searchTerm) {
       filtered = filtered.filter(
         (transaction) =>
-          transaction.transaction_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          transaction.item_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          transaction.customer_name.toLowerCase().includes(searchTerm.toLowerCase())
+          transaction.transaction_id
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          transaction.item_name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          transaction.customer_name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase())
       );
     }
-    
+
     // Apply status filter
     if (statusFilter !== "all") {
-      filtered = filtered.filter((transaction) => transaction.status === statusFilter);
+      filtered = filtered.filter(
+        (transaction) => transaction.status === statusFilter
+      );
     }
-    
+
     // Apply date filter
     if (dateFilter) {
       filtered = filtered.filter((transaction) => {
-        const transactionDate = new Date(transaction.transaction_date).toISOString().split('T')[0];
+        const transactionDate = new Date(transaction.transaction_date)
+          .toISOString()
+          .split("T")[0];
         return transactionDate === dateFilter;
       });
     }
-    
+
     setFilteredTransactions(filtered);
   };
 
   const handleAddTransaction = () => {
     // Find the selected item to get its selling price
-    const selectedItem = inventoryItems.find(item => item.SKU === selectedSku);
+    const selectedItem = inventoryItems.find(
+      (item) => item.SKU === selectedSku
+    );
     if (!selectedItem) {
       alert("Please select a valid item");
       return;
     }
-    
+
     // Calculate total price
     const calculatedTotalPrice = selectedItem.selling_price * quantity;
-    
+
     // Create new transaction object
     const newTransaction: SalesTransaction = {
       transaction_id: uuidv4(),
@@ -147,11 +167,11 @@ const Sales: React.FC = () => {
       quantity: quantity,
       customer_name: customerName,
       payment_method: paymentMethod,
-      transaction_date: new Date().toISOString(),
+      transaction_date: transactionDate, // Use the user-provided date
       status: "pending",
-      total_price: calculatedTotalPrice
+      total_price: calculatedTotalPrice,
     };
-    
+
     // Send POST request to add the transaction
     fetch("http://127.0.0.1:5000/sales", {
       method: "POST",
@@ -183,7 +203,7 @@ const Sales: React.FC = () => {
 
   const handleUpdateStatus = () => {
     if (!selectedTransaction || !newStatus) return;
-    
+
     // Send PUT request to update the transaction status
     fetch(`http://127.0.0.1:5000/sales/${selectedTransaction.transaction_id}`, {
       method: "PUT",
@@ -212,7 +232,7 @@ const Sales: React.FC = () => {
 
   const handleDeleteTransaction = (transactionId: string) => {
     if (!confirm("Are you sure you want to delete this transaction?")) return;
-    
+
     // Send DELETE request
     fetch(`http://127.0.0.1:5000/sales/${transactionId}`, {
       method: "DELETE",
@@ -241,11 +261,12 @@ const Sales: React.FC = () => {
     setCustomerName("");
     setPaymentMethod("cash");
     setTotalPrice(0);
+    setTransactionDate(new Date().toISOString().split("T")[0]); // Reset date to today
   };
 
   const handleItemSelect = (sku: string) => {
     setSelectedSku(sku);
-    const item = inventoryItems.find(item => item.SKU === sku);
+    const item = inventoryItems.find((item) => item.SKU === sku);
     if (item) {
       setSelectedItemName(item.item_name);
       setTotalPrice(item.selling_price * quantity);
@@ -254,7 +275,7 @@ const Sales: React.FC = () => {
 
   const handleQuantityChange = (newQuantity: number) => {
     setQuantity(newQuantity);
-    const item = inventoryItems.find(item => item.SKU === selectedSku);
+    const item = inventoryItems.find((item) => item.SKU === selectedSku);
     if (item) {
       setTotalPrice(item.selling_price * newQuantity);
     }
@@ -332,7 +353,7 @@ const Sales: React.FC = () => {
               <th>Item</th>
               <th>Quantity</th>
               <th>Customer</th>
-              <th>Date</th>
+              <th>Date</th> {/* New column for date */}
               <th>Status</th>
               <th>Total Price</th>
               <th>Actions</th>
@@ -346,10 +367,12 @@ const Sales: React.FC = () => {
                   <td>{transaction.item_name}</td>
                   <td>{transaction.quantity}</td>
                   <td>{transaction.customer_name}</td>
-                  <td>{new Date(transaction.transaction_date).toLocaleDateString()}</td>
+                  <td>{transaction.transaction_date}</td>{" "}
+                  {/* Display the date */}
                   <td>
                     <Badge bg={getStatusBadgeColor(transaction.status)}>
-                      {transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1)}
+                      {transaction.status.charAt(0).toUpperCase() +
+                        transaction.status.slice(1)}
                     </Badge>
                   </td>
                   <td>${transaction.total_price.toFixed(2)}</td>
@@ -380,7 +403,9 @@ const Sales: React.FC = () => {
                     <Button
                       variant="danger"
                       size="sm"
-                      onClick={() => handleDeleteTransaction(transaction.transaction_id)}
+                      onClick={() =>
+                        handleDeleteTransaction(transaction.transaction_id)
+                      }
                     >
                       <i className="bi bi-trash"></i>
                     </Button>
@@ -399,7 +424,11 @@ const Sales: React.FC = () => {
       </div>
 
       {/* Add Transaction Modal */}
-      <Modal show={showAddModal} onHide={() => setShowAddModal(false)} size="lg">
+      <Modal
+        show={showAddModal}
+        onHide={() => setShowAddModal(false)}
+        size="lg"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Add Sales Transaction</Modal.Title>
         </Modal.Header>
@@ -415,7 +444,8 @@ const Sales: React.FC = () => {
                 <option value="">Select an item</option>
                 {inventoryItems.map((item) => (
                   <option key={item.SKU} value={item.SKU}>
-                    {item.item_name} (SKU: {item.SKU}) - ${item.selling_price.toFixed(2)} - Available: {item.quantity}
+                    {item.item_name} (SKU: {item.SKU}) - $
+                    {item.selling_price.toFixed(2)} - Available: {item.quantity}
                   </option>
                 ))}
               </Form.Select>
@@ -457,6 +487,16 @@ const Sales: React.FC = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
+              <Form.Label>Transaction Date</Form.Label>
+              <Form.Control
+                type="date"
+                value={transactionDate}
+                onChange={(e) => setTransactionDate(e.target.value)}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
               <Form.Label>Total Price</Form.Label>
               <Form.Control
                 type="text"
@@ -484,25 +524,50 @@ const Sales: React.FC = () => {
         <Modal.Body>
           {selectedTransaction && (
             <div>
-              <p><strong>Transaction ID:</strong> {selectedTransaction.transaction_id}</p>
-              <p><strong>SKU:</strong> {selectedTransaction.sku}</p>
-              <p><strong>Item Name:</strong> {selectedTransaction.item_name}</p>
-              <p><strong>Quantity:</strong> {selectedTransaction.quantity}</p>
-              <p><strong>Customer Name:</strong> {selectedTransaction.customer_name}</p>
-              <p><strong>Payment Method:</strong> {selectedTransaction.payment_method}</p>
-              <p><strong>Transaction Date:</strong> {new Date(selectedTransaction.transaction_date).toLocaleString()}</p>
+              <p>
+                <strong>Transaction ID:</strong>{" "}
+                {selectedTransaction.transaction_id}
+              </p>
+              <p>
+                <strong>SKU:</strong> {selectedTransaction.sku}
+              </p>
+              <p>
+                <strong>Item Name:</strong> {selectedTransaction.item_name}
+              </p>
+              <p>
+                <strong>Quantity:</strong> {selectedTransaction.quantity}
+              </p>
+              <p>
+                <strong>Customer Name:</strong>{" "}
+                {selectedTransaction.customer_name}
+              </p>
+              <p>
+                <strong>Payment Method:</strong>{" "}
+                {selectedTransaction.payment_method}
+              </p>
+              <p>
+                <strong>Transaction Date:</strong>{" "}
+                {selectedTransaction.transaction_date}
+              </p>
               <p>
                 <strong>Status:</strong>{" "}
                 <Badge bg={getStatusBadgeColor(selectedTransaction.status)}>
-                  {selectedTransaction.status.charAt(0).toUpperCase() + selectedTransaction.status.slice(1)}
+                  {selectedTransaction.status.charAt(0).toUpperCase() +
+                    selectedTransaction.status.slice(1)}
                 </Badge>
               </p>
-              <p><strong>Total Price:</strong> ${selectedTransaction.total_price.toFixed(2)}</p>
+              <p>
+                <strong>Total Price:</strong> $
+                {selectedTransaction.total_price.toFixed(2)}
+              </p>
             </div>
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowDetailsModal(false)}>
+          <Button
+            variant="secondary"
+            onClick={() => setShowDetailsModal(false)}
+          >
             Close
           </Button>
         </Modal.Footer>
@@ -520,7 +585,8 @@ const Sales: React.FC = () => {
                 <Form.Label>Current Status</Form.Label>
                 <div>
                   <Badge bg={getStatusBadgeColor(selectedTransaction.status)}>
-                    {selectedTransaction.status.charAt(0).toUpperCase() + selectedTransaction.status.slice(1)}
+                    {selectedTransaction.status.charAt(0).toUpperCase() +
+                      selectedTransaction.status.slice(1)}
                   </Badge>
                 </div>
               </Form.Group>
@@ -529,7 +595,15 @@ const Sales: React.FC = () => {
                 <Form.Label>New Status</Form.Label>
                 <Form.Select
                   value={newStatus}
-                  onChange={(e) => setNewStatus(e.target.value as "pending" | "packed" | "shipped" | "delivered")}
+                  onChange={(e) =>
+                    setNewStatus(
+                      e.target.value as
+                        | "pending"
+                        | "packed"
+                        | "shipped"
+                        | "delivered"
+                    )
+                  }
                 >
                   <option value="pending">Pending</option>
                   <option value="packed">Packed</option>

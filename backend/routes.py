@@ -5,6 +5,8 @@ import random
 import uuid
 from flask_mail import Message
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date, datetime, timedelta
+
 
 # Temporary storage for verification codes (in production, use a database or Redis)
 verification_codes = {}
@@ -318,7 +320,7 @@ def add_sales():
         "quantity": int(data.get("quantity", 0)),
         "customer_name": data.get("customer_name", ""),
         "payment_method": data.get("payment_method", ""),
-        "transaction_date": data.get("transaction_date", ""),
+        "transaction_date": data.get("transaction_date", ""),  # Add this line
         "status": data.get("status", "pending"),  # Default status is pending
         "total_price": float(data.get("total_price", 0.0))
     }
@@ -457,6 +459,76 @@ def get_inventory_by_sku(sku):
             "expiration_date": None
         }
         return jsonify(mock_item)
+    
+# Get sales summary
+@app.route('/sales/summary', methods=['GET'])
+def get_sales_summary():
+    time_filter = request.args.get('filter', 'monthly')  # daily, monthly, yearly
+    
+    # Calculate date ranges
+    now = datetime.utcnow()
+    max_days = 30
+    max_months = 12
+    max_years = 5
+
+    match_stage = {}
+    limit = 0
+
+    if time_filter == 'daily':
+        start_date = now - timedelta(days=max_days)
+        match_stage = {"$match": {"transaction_date": {"$gte": start_date.isoformat()}}}
+        limit = max_days
+    elif time_filter == 'monthly':
+        start_date = now - timedelta(days=30*max_months)
+        match_stage = {"$match": {"transaction_date": {"$gte": start_date.isoformat()}}}
+        limit = max_months
+    elif time_filter == 'yearly':
+        start_date = now - timedelta(days=365*max_years)
+        match_stage = {"$match": {"transaction_date": {"$gte": start_date.isoformat()}}}
+        limit = max_years
+
+    pipeline = [
+    {"$project": {
+        "total_price": 1,
+        "transaction_date": 1,
+        "year": {"$year": {"$toDate": "$transaction_date"}},
+        "month": {"$month": {"$toDate": "$transaction_date"}},
+        "day": {"$dayOfMonth": {"$toDate": "$transaction_date"}}
+    }},
+    match_stage,
+    {"$group": {
+        "_id": {
+            "daily": {"$dateToString": {"format": "%Y-%m-%d", "date": {"$toDate": "$transaction_date"}}},
+            "monthly": {"$dateToString": {"format": "%Y-%m", "date": {"$toDate": "$transaction_date"}}},
+            "yearly": {"$dateToString": {"format": "%Y", "date": {"$toDate": "$transaction_date"}}}
+        }[time_filter],
+        "total": {"$sum": "$total_price"},
+        "count": {"$sum": 1}
+    }},
+    {"$sort": {"_id": 1}},
+    {"$limit": limit} if limit > 0 else {"$match": {}}
+]
+
+    try:
+        result = list(sales_collection.aggregate(pipeline))
+        formatted_data = []
+        total_sales = 0
+        
+        for item in result:
+            formatted_data.append({
+                "date": item["_id"],
+                "total": item["total"]
+            })
+            total_sales += item["total"]
+
+        return jsonify({
+            "data": formatted_data,
+            "total_sales": total_sales,
+            "filter": time_filter
+        })
+    except Exception as e:
+        print(f"Error generating sales summary: {e}")
+        return jsonify({"error": "Failed to generate sales summary"}), 500
 
 #----------------------Purchase Orders----------------------#
 @app.route('/purchase-orders', methods =['GET'])
@@ -528,3 +600,6 @@ def approve_purchase_order(reference_number):
     )
     
     return jsonify({"message": "Purchase order approved"}), 200
+
+#---------------------- Dashboard----------------------#
+
