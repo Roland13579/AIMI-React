@@ -17,10 +17,6 @@ StockSight is a comprehensive inventory management and business forecasting syst
 
 ### 2. Dashboard
 
-<p align="center">
-  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/dashboard.png" width="1000">
-</p>
-
 - Real-time overview of business metrics
 - Sales activity tracking (Pending, Packed, Shipped, Delivered)
 - Low stock warnings and alerts
@@ -28,8 +24,6 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - Industry health indicators powered by SingStat data
 
 ### 3. Inventory Management
-
-<img src="https://github.com/Roland13579/AIMI-React/blob/main/images/inventory.png" width="450"> <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/itemview.png" width="450">
 
 - Complete inventory tracking system
 - Add, edit, and delete inventory items
@@ -41,10 +35,6 @@ StockSight is a comprehensive inventory management and business forecasting syst
 
 ### 4. Sales Tracking
 
-<p align="center">
-  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/sales.png" width="1000">
-</p>
-
 - Comprehensive sales data recording
 - Sales history and transaction management
 - Sales performance metrics and analysis
@@ -52,20 +42,12 @@ StockSight is a comprehensive inventory management and business forecasting syst
 
 ### 5. Purchase Orders
 
-<p align="center">
-  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/po.png" width="1000">
-</p>
-
 - Create and manage purchase orders
 - Track order status and fulfillment
 - Supplier management
 - Order history and documentation
 
 ### 6. AI-Powered Forecasting
-
-<p align="center">
-  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/forecast.png" width="1000">
-</p>
 
 - **SingStat API Integration** for real-time industry data
 - Machine learning models for sales prediction
@@ -76,6 +58,10 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - Focused metrics for sales and profit analysis
 
 ### SingStat API Integration
+
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/singstat.png" width="400">
+</p>
 
 StockSight leverages the Singapore Department of Statistics (SingStat) API to provide accurate industry insights and improve sales forecasting. The integration includes:
 
