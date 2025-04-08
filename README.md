@@ -9,15 +9,18 @@ StockSight is a comprehensive inventory management and business forecasting syst
 ## Features
 
 ### 1. User Authentication & Management
+
 - Secure login and registration system
 - Email verification for new accounts
 - Role-based access control (Manager/Employee)
 - User profile management
 
 ### 2. Dashboard
+
 <p align="center">
   <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/dashboard.png" width="300">
 </p>
+
 - Real-time overview of business metrics
 - Sales activity tracking (Pending, Packed, Shipped, Delivered)
 - Low stock warnings and alerts
@@ -25,24 +28,30 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - Industry health indicators powered by SingStat data
 
 ### 3. Inventory Management
+
 <p align="center">
   <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/inventory.png" width="300">
 </p>
+
 - Complete inventory tracking system
 - Add, edit, and delete inventory items
 - Low stock alerts and reorder point management
+
 <p align="center">
   <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/itemview.png" width="300">
 </p>
+
 - Detailed item information with modal view
 - Inventory status visualization
 - Negative stock alerts to prevent overselling
 - AI-powered reorder point suggestions based on sales trends
 
 ### 4. Sales Tracking
+
 <p align="center">
   <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/sales.png" width="300">
 </p>
+
 - Comprehensive sales data recording
 - Sales history and transaction management
 - Sales performance metrics and analysis
