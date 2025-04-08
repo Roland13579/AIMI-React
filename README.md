@@ -2,7 +2,7 @@
 
 StockSight is a comprehensive inventory management and business forecasting system that leverages AI and real-time market data from the SingStat API to provide accurate sales predictions and business insights.
 
-![StockSight Dashboard](https://stocksight-pink.vercel.app/dashboard)
+![https://github.com/Roland13579/AIMI-React/blob/main/images/logo2.png]
 
 ## Features
 
