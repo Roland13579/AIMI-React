@@ -15,6 +15,9 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - User profile management
 
 ### 2. Dashboard
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/dashboard.png" width="300">
+</p>
 - Real-time overview of business metrics
 - Sales activity tracking (Pending, Packed, Shipped, Delivered)
 - Low stock warnings and alerts
@@ -22,27 +25,42 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - Industry health indicators powered by SingStat data
 
 ### 3. Inventory Management
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/inventory.png" width="300">
+</p>
 - Complete inventory tracking system
 - Add, edit, and delete inventory items
 - Low stock alerts and reorder point management
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/itemview.png" width="300">
+</p>
 - Detailed item information with modal view
 - Inventory status visualization
 - Negative stock alerts to prevent overselling
 - AI-powered reorder point suggestions based on sales trends
 
 ### 4. Sales Tracking
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/sales.png" width="300">
+</p>
 - Comprehensive sales data recording
 - Sales history and transaction management
 - Sales performance metrics and analysis
 - Revenue and profit tracking
 
 ### 5. Purchase Orders
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/po.png" width="300">
+</p>
 - Create and manage purchase orders
 - Track order status and fulfillment
 - Supplier management
 - Order history and documentation
 
 ### 6. AI-Powered Forecasting
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/forecast.png" width="300">
+</p>
 - **SingStat API Integration** for real-time industry data
 - Machine learning models for sales prediction
 - Industry health analysis and trend forecasting
@@ -50,6 +68,33 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - Confidence intervals for predictions
 - Time-frame adjustable forecasts (weekly, monthly, yearly)
 - Focused metrics for sales and profit analysis
+
+### SingStat API Integration
+
+StockSight leverages the Singapore Department of Statistics (SingStat) API to provide accurate industry insights and improve sales forecasting. The integration includes:
+
+1. **Real-time Data Fetching**
+   - Automated retrieval of latest economic indicators
+   - Regular updates of industry performance metrics
+   - Historical data analysis for trend identification
+
+2. **Industry Health Analysis**
+   - Manufacturing sector performance tracking
+   - Services sector performance evaluation
+   - Calculation of industry health coefficients
+   - Trend analysis and future projections
+
+3. **Enhanced Forecasting**
+   - Industry-specific growth predictions
+   - Market trend incorporation into sales forecasts
+   - Confidence interval adjustments based on industry stability
+   - Seasonal adjustments using historical SingStat data
+
+4. **Category-specific Insights**
+   - Product categorization aligned with SingStat sectors
+   - Category-specific performance metrics
+   - Comparative analysis across different industry segments
+   - Growth opportunity identification
 
 ## Getting Started
 
@@ -84,7 +129,7 @@ touch .env
 python run.py
 ```
 
-5. The front end is already hosted through Vercel so go to [https://stocksight-pink.vercel.app/dashboard] to experience the website!
+5. The front end is already hosted through Vercel so go to https://stocksight-pink.vercel.app/dashboard to experience the website!
 
 ### Installation (Frond-end and Back-end)
 
@@ -130,33 +175,6 @@ npm run dev
   - Services sector performance metrics
   - Economic indicators and trends
   - Industry health coefficients
-
-## SingStat API Integration
-
-StockSight leverages the Singapore Department of Statistics (SingStat) API to provide accurate industry insights and improve sales forecasting. The integration includes:
-
-1. **Real-time Data Fetching**
-   - Automated retrieval of latest economic indicators
-   - Regular updates of industry performance metrics
-   - Historical data analysis for trend identification
-
-2. **Industry Health Analysis**
-   - Manufacturing sector performance tracking
-   - Services sector performance evaluation
-   - Calculation of industry health coefficients
-   - Trend analysis and future projections
-
-3. **Enhanced Forecasting**
-   - Industry-specific growth predictions
-   - Market trend incorporation into sales forecasts
-   - Confidence interval adjustments based on industry stability
-   - Seasonal adjustments using historical SingStat data
-
-4. **Category-specific Insights**
-   - Product categorization aligned with SingStat sectors
-   - Category-specific performance metrics
-   - Comparative analysis across different industry segments
-   - Growth opportunity identification
 
 ## Mathematical Models & Algorithms
 
