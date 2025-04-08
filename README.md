@@ -49,6 +49,58 @@ StockSight is a comprehensive inventory management and business forecasting syst
 - Time-frame adjustable forecasts (weekly, monthly, yearly)
 - Focused metrics for sales and profit analysis
 
+## Getting Started
+
+### Prerequisites
+- Node.js (v16+)
+- Python (v3.8+)
+- MongoDB
+
+### Installation (Backend-Only)
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/stocksight.git
+cd stocksight
+```
+
+2. Install backend dependencies
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+3. Set up environment variables
+```bash
+# Create .env file in backend directory
+touch .env
+# Add necessary environment variables
+```
+
+4. Start the backend server
+```bash
+python run.py
+```
+
+5. The front end is already hosted through Vercel so go to [https://stocksight-pink.vercel.app/dashboard] to experience the website!
+
+### Installation (Frond-end and Back-end)
+
+1. Complete steps 1-4 from the above procedure to deploy the backend.
+
+2. Install frontend dependencies
+```bash
+npm install
+```
+
+3. Start the frontend development server
+```bash
+cd ..
+npm run dev
+```
+
+4. Access the application at `http://localhost:xxxx` where `xxxx` is the port you have set for hosting the frontend (See the output after running `npm run dev`).
+
 ## Technical Stack
 
 ### Frontend
@@ -305,52 +357,6 @@ if (quantity > selectedItem.quantity) {
      # Normalize to 0-0.5 range
      normalized_value = ((predicted_value - min_val) / (max_val - min_val)) * 0.5
      ```
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v16+)
-- Python (v3.8+)
-- MongoDB
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/stocksight.git
-cd stocksight
-```
-
-2. Install frontend dependencies
-```bash
-npm install
-```
-
-3. Install backend dependencies
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-4. Set up environment variables
-```bash
-# Create .env file in backend directory
-touch .env
-# Add necessary environment variables
-```
-
-5. Start the backend server
-```bash
-python run.py
-```
-
-6. Start the frontend development server
-```bash
-cd ..
-npm run dev
-```
-
-7. Access the application at `http://localhost:3000`
 
 ## License
 
