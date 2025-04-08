@@ -29,7 +29,7 @@ StockSight is a comprehensive inventory management and business forecasting syst
 
 ### 3. Inventory Management
 
-<img src="https://github.com/Roland13579/AIMI-React/blob/main/images/inventory.png" width="750"> <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/itemview.png" width="750">
+<img src="https://github.com/Roland13579/AIMI-React/blob/main/images/inventory.png" width="450"> <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/itemview.png" width="450">
 
 - Complete inventory tracking system
 - Add, edit, and delete inventory items
