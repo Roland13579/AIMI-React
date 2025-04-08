@@ -380,3 +380,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [React Bootstrap](https://react-bootstrap.github.io/) for UI components
 - [Recharts](https://recharts.org/) for data visualization
 - [scikit-learn](https://scikit-learn.org/) for machine learning capabilities
+
+## Authors
+
+<p align="center">
+  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/logo.png" width="400">
+</p>
+
+- Garv Sachdev [garv001@e.ntu.edu.sg]
+- 
