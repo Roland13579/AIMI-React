@@ -1,0 +1,484 @@
+Item Name,Category
+"Luxury Hotel Management System",Accommodation & Food Services
+"Restaurant POS System Pro",Accommodation & Food Services
+"Catering Service Platform",Accommodation & Food Services
+"Resort Booking Software",Accommodation & Food Services
+"Food Delivery Management",Accommodation & Food Services
+"Hotel Revenue Optimizer",Accommodation & Food Services
+"Bar Inventory Control",Accommodation & Food Services
+"Conference Center Booking",Accommodation & Food Services
+"Kitchen Display System",Accommodation & Food Services
+"Guest Experience Monitor",Accommodation & Food Services
+
+"Rail Signaling System",Transport Engineering
+"Automotive Transmission",Transport Engineering
+"Aircraft Landing Gear",Transport Engineering
+"EV Battery Pack",Transport Engineering
+"Traffic Control System",Transport Engineering
+"Locomotive Engine",Transport Engineering
+"Autonomous Vehicle Sensor",Transport Engineering
+"Public Transport Ticketing",Transport Engineering
+"Bicycle Gear System",Transport Engineering
+"Tire Pressure Monitor",Transport Engineering
+
+"CNC Milling Machine",General Manufacturing Industries
+"Industrial Conveyor Belt",General Manufacturing Industries
+"Packaging Assembly Line",General Manufacturing Industries
+"Quality Control Scanner",General Manufacturing Industries
+"Metal Stamping Press",General Manufacturing Industries
+"Plastic Injection Molder",General Manufacturing Industries
+"Factory Robot Arm",General Manufacturing Industries
+"Industrial Oven System",General Manufacturing Industries
+"Laser Cutting System",General Manufacturing Industries
+"Assembly Line Optimizer",General Manufacturing Industries
+
+"Smart Shelf System",Retail Trade
+"Checkout Kiosk",Retail Trade
+"Mobile POS Terminal",Retail Trade
+"Customer Analytics Platform",Retail Trade
+"Store Inventory Drone",Retail Trade
+"Digital Price Tag",Retail Trade
+"Loyalty Program Software",Retail Trade
+"Virtual Fitting Room",Retail Trade
+"Retail Heat Map Analyzer",Retail Trade
+"Self-Service Checkout",Retail Trade
+
+"Warehouse Management System",Transportation & Storage
+"Fleet Tracking Device",Transportation & Storage
+"Cold Chain Monitor",Transportation & Storage
+"Parcel Sorting Robot",Transportation & Storage
+"Container Tracking System",Transportation & Storage
+"Fuel Management Software",Transportation & Storage
+"Loading Dock Optimizer",Transportation & Storage
+"Pallet RFID Tracker",Transportation & Storage
+"Last-Mile Delivery App",Transportation & Storage
+"Freight Brokerage Platform",Transportation & Storage
+
+"Virtual Office Platform",Administrative & Support Services
+"Document Scanning Service",Administrative & Support Services
+"Mailroom Management System",Administrative & Support Services
+"Corporate Cleaning Contract",Administrative & Support Services
+"Employee Relocation Service",Administrative & Support Services
+"Call Center Analytics",Administrative & Support Services
+"Facility Maintenance App",Administrative & Support Services
+"Executive Search Database",Administrative & Support Services
+"Event Registration Software",Administrative & Support Services
+"Workplace Safety Trainer",Administrative & Support Services
+
+"Algorithmic Trading Engine",Security Dealing Activities
+"Dark Pool Platform",Security Dealing Activities
+"Portfolio Risk Analyzer",Security Dealing Activities
+"High-Frequency Trading API",Security Dealing Activities
+"Blockchain Settlement System",Security Dealing Activities
+"Market Making Software",Security Dealing Activities
+"Quant Research Platform",Security Dealing Activities
+"Derivatives Pricing Model",Security Dealing Activities
+"Compliance Monitoring Tool",Security Dealing Activities
+"Order Management System",Security Dealing Activities
+
+"Artisan Coffee Roaster",Food Beverages & Tobacco
+"Premium Cigar Humidor",Food Beverages & Tobacco
+"Microbrewery Equipment",Food Beverages & Tobacco
+"Chocolate Tempering Machine",Food Beverages & Tobacco
+"Tea Blending System",Food Beverages & Tobacco
+"Wine Aging Barrel",Food Beverages & Tobacco
+"Snack Food Packaging Line",Food Beverages & Tobacco
+"Distillery Management Software",Food Beverages & Tobacco
+"Plant-Based Meat Processor",Food Beverages & Tobacco
+"Beverage Canning Machine",Food Beverages & Tobacco
+
+"Hotel PMS Software",Accommodation
+"Vacation Rental Platform",Accommodation
+"Housekeeping Optimizer",Accommodation
+"Resort Activity Scheduler",Accommodation
+"Channel Management System",Accommodation
+"Guest Feedback Analyzer",Accommodation
+"Revenue Management Tool",Accommodation
+"Front Desk Automation",Accommodation
+"Room Service App",Accommodation
+"Concierge Management System",Accommodation
+
+"Digital Printing Press",Printing
+"3D Book Binding Machine",Printing
+"Industrial Label Printer",Printing
+"Packaging Prototyper",Printing
+"Large Format Printer",Printing
+"Variable Data Software",Printing
+"UV Curing System",Printing
+"Color Matching Device",Printing
+"Paper Cutting Robot",Printing
+"Magazine Layout Software",Printing
+
+"5G Network Analyzer",Information & Communications
+"Fiber Optic Splicer",Information & Communications
+"Data Center Router",Information & Communications
+"VoIP PBX System",Information & Communications
+"Satellite Modem",Information & Communications
+"Network Security Appliance",Information & Communications
+"Cloud Migration Tool",Information & Communications
+"SD-WAN Controller",Information & Communications
+"IoT Gateway Device",Information & Communications
+"Video Conferencing System",Information & Communications
+
+"Gym Management Software",Recreation Community & Personal Services
+"Golf Course Scheduler",Recreation Community & Personal Services
+"Amusement Park Ticketing",Recreation Community & Personal Services
+"Swim School Platform",Recreation Community & Personal Services
+"Community Center Booking",Recreation Community & Personal Services
+"Personal Trainer App",Recreation Community & Personal Services
+"Event Ticket Platform",Recreation Community & Personal Services
+"Pet Grooming Scheduler",Recreation Community & Personal Services
+"Art Class Registration",Recreation Community & Personal Services
+"Yoga Studio Manager",Recreation Community & Personal Services
+
+"B2B E-Commerce Platform",Wholesale Trade
+"Inventory Forecasting",Wholesale Trade
+"Purchase Order System",Wholesale Trade
+"Supplier Portal",Wholesale Trade
+"Bulk Pricing Calculator",Wholesale Trade
+"Distribution Center Software",Wholesale Trade
+"Trade Credit Management",Wholesale Trade
+"Cross-Docking System",Wholesale Trade
+"Wholesale CRM",Wholesale Trade
+"EDI Integration Tool",Wholesale Trade
+
+"Ship Engine Diagnostic",Marine & Offshore Engineering
+"Underwater ROV System",Marine & Offshore Engineering
+"Port Crane Automation",Marine & Offshore Engineering
+"Ballast Water Treatment",Marine & Offshore Engineering
+"Naval Radar System",Marine & Offshore Engineering
+"Offshore Wind Turbine",Marine & Offshore Engineering
+"Subsea Pipeline Robot",Marine & Offshore Engineering
+"Marine Diesel Injector",Marine & Offshore Engineering
+"Ship Hull Coating",Marine & Offshore Engineering
+"Autonomous Cargo Ship",Marine & Offshore Engineering
+
+"Medical Implant 3D Printer",Biomedical Manufacturing
+"Surgical Robot Arm",Biomedical Manufacturing
+"Prosthetic Socket System",Biomedical Manufacturing
+"Diagnostic Lab Equipment",Biomedical Manufacturing
+"Wearable Health Monitor",Biomedical Manufacturing
+"DNA Sequencer",Biomedical Manufacturing
+"Portable Dialysis Machine",Biomedical Manufacturing
+"Neural Interface Chip",Biomedical Manufacturing
+"Smart Bandage System",Biomedical Manufacturing
+"Tissue Engineering Scaffold",Biomedical Manufacturing
+
+"Smart TV Processor",Infocomms & Consumer Electronics
+"Wireless Earbuds Pro",Infocomms & Consumer Electronics
+"Fitness Tracking Ring",Infocomms & Consumer Electronics
+"VR Haptic Glove",Infocomms & Consumer Electronics
+"Smart Kitchen Display",Infocomms & Consumer Electronics
+"Portable Projector",Infocomms & Consumer Electronics
+"E-Reader Tablet",Infocomms & Consumer Electronics
+"Gaming Console Chipset",Infocomms & Consumer Electronics
+"Drone Camera Gimbal",Infocomms & Consumer Electronics
+"Smart Mirror Display",Infocomms & Consumer Electronics
+
+"Industrial Solvent Blend",Chemicals
+"Polymer Resin Formula",Chemicals
+"Acid Neutralizer",Chemicals
+"Catalyst Powder",Chemicals
+"Corrosion Inhibitor",Chemicals
+"Flame Retardant",Chemicals
+"Water Treatment Chemical",Chemicals
+"Adhesive Compound",Chemicals
+"Textile Dye Solution",Chemicals
+"Cleaning Agent Concentrate",Chemicals
+
+"Enterprise SSD Array",Computer Peripherals & Data Storage
+"RAID Controller Card",Computer Peripherals & Data Storage
+"NAS Backup System",Computer Peripherals & Data Storage
+"Data Center Tape Library",Computer Peripherals & Data Storage
+"Optical Archive System",Computer Peripherals & Data Storage
+"Storage Area Network",Computer Peripherals & Data Storage
+"Memory Module Tester",Computer Peripherals & Data Storage
+"Disk Encryption Chip",Computer Peripherals & Data Storage
+"Cloud Storage Gateway",Computer Peripherals & Data Storage
+"Flash Memory Controller",Computer Peripherals & Data Storage
+
+"Commercial Ice Machine",Food & Beverage Services
+"Bar Inventory System",Food & Beverage Services
+"Kitchen Display Screen",Food & Beverage Services
+"POS Kitchen Printer",Food & Beverage Services
+"Beverage Dispenser",Food & Beverage Services
+"Menu Board Software",Food & Beverage Services
+"Table Reservation System",Food & Beverage Services
+"Wine Preservation System",Food & Beverage Services
+"Food Safety Scanner",Food & Beverage Services
+"Smart Soda Fountain",Food & Beverage Services
+
+"Loan Origination Software",Banks & Finance Companies
+"ATM Cash Management",Banks & Finance Companies
+"Fraud Detection AI",Banks & Finance Companies
+"Mobile Banking App",Banks & Finance Companies
+"Credit Risk Model",Banks & Finance Companies
+"Core Banking System",Banks & Finance Companies
+"Treasury Management",Banks & Finance Companies
+"Wealth Management Portal",Banks & Finance Companies
+"Payment Processing Gateway",Banks & Finance Companies
+"Regulatory Reporting",Banks & Finance Companies
+
+"Legal Document AI",Professional Services
+"Architectural CAD",Professional Services
+"Engineering Simulation",Professional Services
+"Accounting Audit Tool",Professional Services
+"Management Consulting",Professional Services
+"Tax Preparation Software",Professional Services
+"HR Compliance System",Professional Services
+"Environmental Impact",Professional Services
+"Market Research Platform",Professional Services
+"Patent Filing System",Professional Services
+
+"Commercial Land Plot",Land
+"Agricultural Field",Land
+"Industrial Zone",Land
+"Residential Development",Land
+"Retail Space",Land
+"Mixed-Use Property",Land
+"Recreational Land",Land
+"Conservation Area",Land
+"Timberland",Land
+"Mineral Rights",Land
+
+"Peer-to-Peer Lending",Other Financial Services
+"Crowdfunding Platform",Other Financial Services
+"Payment Gateway",Other Financial Services
+"Forex Trading System",Other Financial Services
+"Factoring Service",Other Financial Services
+"Leasing Software",Other Financial Services
+"Microfinance Platform",Other Financial Services
+"Cryptocurrency Wallet",Other Financial Services
+"Wealth Tech Solution",Other Financial Services
+"Robo-Advisor Platform",Other Financial Services
+
+"High-Temperature Adhesive",Specialty Chemicals
+"Conductive Ink",Specialty Chemicals
+"Pharma-Grade Solvent",Specialty Chemicals
+"Nanomaterial Coating",Specialty Chemicals
+"Electronic Grade Gas",Specialty Chemicals
+"Food Additive Blend",Specialty Chemicals
+"Cosmetic Emulsifier",Specialty Chemicals
+"Textile Finishing",Specialty Chemicals
+"Waterproofing Compound",Specialty Chemicals
+"Catalyst Support",Specialty Chemicals
+
+"Semiconductor Wafer",Semiconductors
+"Chip Testing Handler",Semiconductors
+"Die Bonding Machine",Semiconductors
+"Lithography Equipment",Semiconductors
+"Wafer Inspection",Semiconductors
+"Packaging Material",Semiconductors
+"Thermal Interface",Semiconductors
+"Cleanroom Equipment",Semiconductors
+"Epitaxy System",Semiconductors
+"Metrology Tool",Semiconductors
+
+"B2B Marketplace",Wholesale & Retail Trade
+"Omnichannel Platform",Wholesale & Retail Trade
+"Supply Chain Software",Wholesale & Retail Trade
+"Vendor Management",Wholesale & Retail Trade
+"Retail Analytics",Wholesale & Retail Trade
+"Category Management",Wholesale & Retail Trade
+"Merchandising Tool",Wholesale & Retail Trade
+"Promotion Optimizer",Wholesale & Retail Trade
+"Store Operations",Wholesale & Retail Trade
+"Retail Media Platform",Wholesale & Retail Trade
+
+"Micro-Drilling Machine",Precision Engineering
+"Optical Comparator",Precision Engineering
+"Coordinate Measuring",Precision Engineering
+"Ultra-Precision Lathe",Precision Engineering
+"Laser Micromachining",Precision Engineering
+"Surface Finishing System",Precision Engineering
+"Gear Grinding Machine",Precision Engineering
+"Nanopositioning Stage",Precision Engineering
+"Wafer Probing System",Precision Engineering
+"Swiss-Type Lathe",Precision Engineering
+
+"Commercial Mortgage",Real Estate
+"Property Management",Real Estate
+"Valuation Software",Real Estate
+"Facility Management",Real Estate
+"Construction Finance",Real Estate
+"Portfolio Analysis",Real Estate
+"Tenant Screening",Real Estate
+"Smart Building System",Real Estate
+"Commercial Appraisal",Real Estate
+"REIT Management",Real Estate
+
+"MRI Scanner Component",Medical Technology
+"Surgical Navigation",Medical Technology
+"Portable Ultrasound",Medical Technology
+"Patient Monitor",Medical Technology
+"Infusion Pump",Medical Technology
+"Endoscope Camera",Medical Technology
+"Prosthetic Limb",Medical Technology
+"Dental Imaging System",Medical Technology
+"Lab Automation Robot",Medical Technology
+"Neonatal Incubator",Medical Technology
+
+"Industrial Fastener",Miscellaneous
+"Packaging Material",Miscellaneous
+"Safety Equipment",Miscellaneous
+"Janitorial Supply",Miscellaneous
+"Office Furniture",Miscellaneous
+"Signage System",Miscellaneous
+"Display Stand",Miscellaneous
+"Material Handling",Miscellaneous
+"Testing Equipment",Miscellaneous
+"Calibration Tool",Miscellaneous
+
+"Tablet Press Machine",Pharmaceuticals
+"Vial Filling Line",Pharmaceuticals
+"Lyophilizer",Pharmaceuticals
+"Blister Packager",Pharmaceuticals
+"Cleanroom Isolator",Pharmaceuticals
+"API Reactor",Pharmaceuticals
+"Particle Analyzer",Pharmaceuticals
+"Stability Chamber",Pharmaceuticals
+"GMP Compliance",Pharmaceuticals
+"High Potency System",Pharmaceuticals
+
+"Crude Oil Analyzer",Petroleum
+"Pipeline Inspection",Petroleum
+"Refinery Catalyst",Petroleum
+"Fuel Additive",Petroleum
+"Drilling Mud",Petroleum
+"Well Sensor Array",Petroleum
+"Storage Tank Monitor",Petroleum
+"Flow Meter",Petroleum
+"Offshore Platform",Petroleum
+"Lubricant Tester",Petroleum
+
+"Insurance Underwriting",Finance & Insurance
+"Claims Processing",Finance & Insurance
+"Annuity Calculator",Finance & Insurance
+"Reinsurance Model",Finance & Insurance
+"Payment Fraud",Finance & Insurance
+"Credit Scoring",Finance & Insurance
+"Blockchain Insurance",Finance & Insurance
+"Underwriting",Finance & Insurance
+"Catastrophe Model",Finance & Insurance
+"Risk Assessment",Finance & Insurance
+
+"Auto Insurance",Insurance Companies
+"Health Insurance",Insurance Companies
+"Life Insurance",Insurance Companies
+"Property Insurance",Insurance Companies
+"Liability Insurance",Insurance Companies
+"Travel Insurance",Insurance Companies
+"Marine Insurance",Insurance Companies
+"Crop Insurance",Insurance Companies
+"Pet Insurance",Insurance Companies
+"Disability Insurance",Insurance Companies
+
+"Catalytic Reformer",Petrochemicals
+"Ethylene Cracker",Petrochemicals
+"Polymerization",Petrochemicals
+"Aromatics",Petrochemicals
+"Olefin",Petrochemicals
+"Butadiene",Petrochemicals
+"Paraxylene",Petrochemicals
+"Styrene",Petrochemicals
+"Acrylonitrile",Petrochemicals
+"Caprolactam",Petrochemicals
+
+"OLED Driver",Other Electronic Modules & Components
+"Power Management",Other Electronic Modules & Components
+"RF Transceiver",Other Electronic Modules & Components
+"Sensor Fusion",Other Electronic Modules & Components
+"Battery Charger",Other Electronic Modules & Components
+"Motor Controller",Other Electronic Modules & Components
+"LED Driver",Other Electronic Modules & Components
+"Wireless Charging",Other Electronic Modules & Components
+"Memory Interface",Other Electronic Modules & Components
+"Signal Processor",Other Electronic Modules & Components
+
+"Industrial Robot",Others
+"Testing Equipment",Others
+"Safety Gear",Others
+"Packaging",Others
+"Material Handling",Others
+"Calibration",Others
+"Fasteners",Others
+"Lubricants",Others
+"Adhesives",Others
+"Cleaning",Others
+
+"Service Analytics",Total Services Sector
+"Customer Support",Total Services Sector
+"Field Service",Total Services Sector
+"Consulting",Total Services Sector
+"Maintenance",Total Services Sector
+"Technical Support",Total Services Sector
+"Professional",Total Services Sector
+"Business Process",Total Services Sector
+"Outsourcing",Total Services Sector
+"Managed Services",Total Services Sector
+
+"Industrial Pump",Machinery & Systems
+"Compressor",Machinery & Systems
+"Turbine",Machinery & Systems
+"Generator",Machinery & Systems
+"Gearbox",Machinery & Systems
+"Conveyor",Machinery & Systems
+"Mixer",Machinery & Systems
+"Extruder",Machinery & Systems
+"Press",Machinery & Systems
+"Fan",Machinery & Systems
+
+"Precision Bearing",Precision Modules & Components
+"Micro Gear",Precision Modules & Components
+"Optical Encoder",Precision Modules & Components
+"Fluidic Connector",Precision Modules & Components
+"Miniature Valve",Precision Modules & Components
+"Tiny Actuator",Precision Modules & Components
+"Micro-Spring",Precision Modules & Components
+"Nano-Filter",Precision Modules & Components
+"Precision Shim",Precision Modules & Components
+"Linear Guide",Precision Modules & Components
+
+"Jet Engine",Aerospace
+"Avionics",Aerospace
+"Composite Panel",Aerospace
+"Flight Control",Aerospace
+"Satellite",Aerospace
+"Hydraulic",Aerospace
+"Thermal Shield",Aerospace
+"Drone",Aerospace
+"Airframe",Aerospace
+"Radar",Aerospace
+
+"HR Consulting",Professional And Administrative & Support Services
+"Legal Service",Professional And Administrative & Support Services
+"Accounting",Professional And Administrative & Support Services
+"Architecture",Professional And Administrative & Support Services
+"Engineering",Professional And Administrative & Support Services
+"Management",Professional And Administrative & Support Services
+"Technical",Professional And Administrative & Support Services
+"Scientific",Professional And Administrative & Support Services
+"Advertising",Professional And Administrative & Support Services
+"Market Research",Professional And Administrative & Support Services
+
+"PLC Controller",Electronics
+"Vision System",Electronics
+"Motor Drive",Electronics
+"Power Supply",Electronics
+"Embedded",Electronics
+"Test Equipment",Electronics
+"Automation",Electronics
+"Motion Control",Electronics
+"IO Module",Electronics
+"Sensor",Electronics
+
+"Hedge Fund",Fund Management
+"Mutual Fund",Fund Management
+"Private Equity",Fund Management
+"Venture Capital",Fund Management
+"Pension Fund",Fund Management
+"Endowment",Fund Management
+"Family Office",Fund Management
+"Asset Management",Fund Management
+"Wealth Management",Fund Management
+"Investment",Fund Management
