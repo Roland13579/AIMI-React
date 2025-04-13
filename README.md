@@ -388,4 +388,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 </p>
 
 - Garv Sachdev [garv001@e.ntu.edu.sg]
-- Gong Yuelong [ygong005@e.ntu.edu.sg]
+- Gong Yuelong [ygong0051@e.ntu.edu.sg]
+- Lim Jun, Shawn [limj0266@e.ntu.edu.sg]
+- Tee Jia Hong [jtee013@e.ntu.edu.sg]
+
