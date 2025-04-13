@@ -60,7 +60,7 @@ StockSight is a comprehensive inventory management and business forecasting syst
 ### SingStat API Integration
 
 <p align="center">
-  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/singstat.png" width="400">
+  <img src="StockSight/images/singstat.png" width="400">
 </p>
 
 StockSight leverages the Singapore Department of Statistics (SingStat) API to provide accurate industry insights and improve sales forecasting. The integration includes:
@@ -384,7 +384,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Authors
 
 <p align="center">
-  <img src="https://github.com/Roland13579/AIMI-React/blob/main/images/logo.png" width="400">
+  <img src="StockSight/images/logo.png" width="400">
 </p>
 
 - Garv Sachdev [garv001@e.ntu.edu.sg]
